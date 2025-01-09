@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <link rel="stylesheet" href="payment.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="index.html" >
+            <img src="Sanvoyage (1).png" alt="" height="170" width="170">
+        </a>
+        <ul>
+            <li><a href="listaprodutos.html">SERVICES</a></li>
+            <li><a href="aboutus.html">ABOUT US</a></li>
+            <button>Contact Us</button>
+        </ul>
+    </div>
+
+    <!-- Payment Section -->
+    <div class="checkout-container">
+        <h1>Payment</h1>
+        <div class="payment-content">
+            <!-- Resumo de Preços -->
+            <div class="price-summary">
+                <h2>Your Price Summary</h2>
+                <p><strong>Base Price:</strong> <span id="display-base-price">€0.00</span></p>
+                <div class="price-breakdown">
+                    <p><strong>IVA (23%):</strong> <span id="iva-value">€0.00</span></p>
+                    <p><strong>Cleaning Fee:</strong> <span id="cleaning-fee">€0.00</span></p>
+                    <p><strong>City Tax:</strong> <span id="city-tax">€0.00</span></p>
+                    <p><strong>Damage Deposit (Refundable):</strong> <span id="damage-deposit">€0.00</span></p>
+                </div>
+                <div class="additional-options">
+                    <h3>Additional Options</h3>
+                    <label>
+                        <input type="checkbox" value="30">
+                        Early Check-In (+30€)
+                    </label><br>
+                    <label>
+                        <input type="checkbox" value="40">
+                        Late Check-Out (+40€)
+                    </label><br>
+                    <label>
+                        <input type="checkbox" value="50">
+                        Airport Transfer (+50€)
+                    </label>
+                </div>
+                <div class="total-section">
+                    <p><strong>Total:</strong> <span id="final-total-price">€0.00</span></p>
+                </div>
+            </div>
+
+            <!-- Detalhes do Pagamento -->
+            <div class="payment-details">
+                <h2>Payment Details</h2>
+                <div class="payment-inputs">
+                    <input type="text" placeholder="Cardholder Name">
+                    <input type="text" placeholder="Card Number">
+                    <input type="text" placeholder="Expiry Date (MM/YY)">
+                    <input type="text" placeholder="CVV">
+                </div>
+                <button class="pay-button">Pay</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <footer>
+            <p>© 2024 made by Renato Santos and Henner Santos</p>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Accessibility Statement</a>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const totalPriceElement = document.getElementById('final-total-price');
+            const basePriceElement = document.getElementById('display-base-price');
+            const ivaElement = document.getElementById('iva-value');
+            const cleaningFeeElement = document.getElementById('cleaning-fee');
+            const cityTaxElement = document.getElementById('city-tax');
+            const damageDepositElement = document.getElementById('damage-deposit');
+
+            // Recuperar informações do localStorage
+            const totalPrice = parseFloat(localStorage.getItem('totalPrice')) || 0;
+
+            // Taxas adicionais
+            const ivaRate = 0.23; // IVA de 23% em Portugal
+            const cleaningFee = 50; // Taxa de limpeza fixa
+            const cityTaxRate = 2; // Taxa por noite (exemplo)
+            const damageDeposit = 200; // Depósito de danos (reembolsável)
+
+            // Opções adicionais
+            const additionalOptions = document.querySelectorAll('.additional-options input');
+
+            function updateTotal() {
+                const iva = totalPrice * ivaRate;
+                const cityTax = cityTaxRate * 2; // Exemplo para 2 noites
+                let additionalFees = Array.from(additionalOptions)
+                    .filter(option => option.checked)
+                    .reduce((sum, option) => sum + parseFloat(option.value), 0);
+
+                const finalTotal = totalPrice + iva + cleaningFee + cityTax + damageDeposit + additionalFees;
+
+                basePriceElement.textContent = `${totalPrice.toFixed(2)}€`;
+                ivaElement.textContent = `${iva.toFixed(2)}€`;
+                cleaningFeeElement.textContent = `${cleaningFee.toFixed(2)}€`;
+                cityTaxElement.textContent = `${cityTax.toFixed(2)}€`;
+                damageDepositElement.textContent = `${damageDeposit.toFixed(2)}€`;
+                totalPriceElement.textContent = `${finalTotal.toFixed(2)}€`;
+            }
+
+            additionalOptions.forEach(option => option.addEventListener('change', updateTotal));
+            updateTotal(); // Atualizar inicialmente
+        });
+    </script>
+
+</body>
+</html>

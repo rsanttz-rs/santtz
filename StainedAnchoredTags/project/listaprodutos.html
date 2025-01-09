@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Alternada de Produtos</title>
+    <link rel="stylesheet" href="listaprodutos.css">
+</head>
+<body>
+    <div class="main-container">
+        <!-- Navbar -->
+        <div class="container">
+            <div class="navbar">
+                <a href="index.html">
+                    <img src="Sanvoyage (1).png" alt="Logo" height="170" width="170">
+                </a>    
+                <ul>
+                    <li><a href="listaprodutos.html">SERVICES</a></li>
+                    <li><a href="aboutus.html">ABOUT US</a></li>
+                    <a href="contactus.html">
+                        <button>Contact Us</button>
+                    </a>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Lista Alternada de Produtos -->
+        <div class="product-list">
+            <!-- Produto 1 -->
+            <div class="produto alternado-esquerda">
+                <div class="product-image-container">
+                    <img src="punta1.jpg" alt="Destination 1" class="product-image">
+                    <div class="slideshow-buttons">
+                        <button class="prev" onclick="changeImage(-1, 1)">&#10094;</button>
+                        <button class="next" onclick="changeImage(1, 1)">&#10095;</button>
+                    </div>
+                </div>
+                <div class="product-details">
+                    <h2>Punta Cana</h2>
+                    <p>Punta Cana is a tropical paradise located on the eastern coast of the Dominican Republic, renowned for its pristine beaches, crystal-clear waters, and luxurious resorts. A top destination for travelers seeking a perfect blend of relaxation and adventure, Punta Cana offers a vibrant atmosphere with a mix of local culture and Caribbean flair. With its year-round sunshine, diverse activities, and world-class amenities, Punta Cana is the ultimate getaway for those looking to enjoy both tranquility and excitement in a breathtaking natural setting.</p>
+                    <p><strong>Price:</strong> €399.99</p>
+                    <button class="book-now">Book Now</button>
+                </div>
+            </div>
+
+            <!-- Produto 2 -->
+            <div class="produto alternado-direita">
+                <div class="product-image-container">
+                    <img src="punta2.jpg" alt="Destination 2" class="product-image">
+                    <div class="slideshow-buttons">
+                        <button class="prev" onclick="changeImage(-1, 2)">&#10094;</button>
+                        <button class="next" onclick="changeImage(1, 2)">&#10095;</button>
+                    </div>
+                </div>
+                <div class="product-details">
+                    <h2>Destination 2</h2>
+                    <p>Explore hidden gems and experience the adventure of a lifetime.</p>
+                    <p><strong>Price:</strong> €499.99</p>
+                    <button class="book-now">Book Now</button>
+                </div>
+            </div>
+
+            <!-- Produto 3 -->
+            <div class="produto alternado-esquerda">
+                <div class="product-image-container">
+                    <img src="destination3.jpg" alt="Destination 3" class="product-image">
+                    <div class="slideshow-buttons">
+                        <button class="prev" onclick="changeImage(-1, 3)">&#10094;</button>
+                        <button class="next" onclick="changeImage(1, 3)">&#10095;</button>
+                    </div>
+                </div>
+                <div class="product-details">
+                    <h2>Destination 3</h2>
+                    <p>Relax on pristine beaches and indulge in luxurious amenities.</p>
+                    <p><strong>Price:</strong> €599.99</p>
+                    <button class="book-now">Book Now</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <footer>
+                <p>© 2024 made by Renato Santos and Henner Santos</p>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Accessibility Statement</a>
+            </footer>
+        </div>
+
+    </div>
+
+    <script>
+        function changeImage(direction, productNumber) {
+            var images = document.querySelectorAll('.produto:nth-child(' + productNumber + ') .product-image');
+            var currentIndex = Array.from(images).indexOf(document.querySelector('.produto:nth-child(' + productNumber + ') .product-image.active'));
+
+            // Remove active class from the current image
+            images[currentIndex].classList.remove('active');
+
+            // Calculate the next image index
+            currentIndex = (currentIndex + direction + images.length) % images.length;
+
+            // Add active class to the new image
+            images[currentIndex].classList.add('active');
+        }
+    </script>
+</body>
+</html>

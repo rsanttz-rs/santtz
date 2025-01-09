@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Sanvoyage</title>
+    <link rel="stylesheet" href="checkout.css">
+</head>
+<body>
+    <div class="main-container">
+        <!-- Navbar -->
+        <div class="navbar">
+            <a href="index.html">
+                <img src="Sanvoyage (1).png" alt="" height="170" width="170">
+            </a> 
+            <ul>
+                <li><a href="listaprodutos.html">SERVICES</a></li>
+                <li><a href="#home">ABOUT US</a></li>
+                <button>Contact Us</button>
+            </ul>
+        </div>
+
+        <!-- Personal Information Section -->
+        <div class="checkout-container">
+            <h1>Personal Information</h1>
+            <div class="personal-info">
+                <input type="text" placeholder="First Name">
+                <input type="text" placeholder="Last Name">
+                <input type="email" placeholder="Email">
+                <input type="text" placeholder="Phone Number">
+            </div>
+            <div class="reservation-summary">
+                <h2>Reservation Details</h2>
+                <label for="checkin">Check-in:</label>
+                <input type="date" id="checkin">
+                <label for="checkout">Check-out:</label>
+                <input type="date" id="checkout">
+                <p><strong>Total Price:</strong> <span id="total-price">€0.00</span></p>
+            </div>
+            <div class="button-container">
+                <a href="payment.html">
+                    <button id="next-button">Next</button>
+                </a>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>© 2024 made by Renato Santos and Henner Santos</p>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Accessibility Statement</a>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const checkinInput = document.getElementById('checkin');
+            const checkoutInput = document.getElementById('checkout');
+            const totalPriceDisplay = document.getElementById('total-price');
+            const nextButton = document.getElementById('next-button');
+
+            // Obtém o preço inicial do parâmetro da URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const basePrice = parseFloat(urlParams.get('basePrice')) || 0;
+
+            // Inicializa o preço total com o valor base
+            totalPriceDisplay.textContent = `${basePrice.toFixed(2)}€`;
+
+            function calculateTotalPrice() {
+                const checkinDate = new Date(checkinInput.value);
+                const checkoutDate = new Date(checkoutInput.value);
+
+                // Verifica se as datas são válidas
+                if (!checkinInput.value || !checkoutInput.value || checkoutDate <= checkinDate) {
+                    totalPriceDisplay.textContent = `${basePrice.toFixed(2)}€`;
+                    return basePrice; // Retorna apenas o preço base
+                }
+
+                // Calcula a diferença em dias
+                const differenceInTime = checkoutDate - checkinDate;
+                const differenceInDays = Math.max(0, Math.floor(differenceInTime / (1000 * 60 * 60 * 24)));
+
+                const extraNights = Math.max(0, differenceInDays - 2); // Noites extras (após 2 noites grátis)
+                const totalPrice = basePrice + extraNights * 450;
+
+                // Atualiza o campo de preço total no HTML
+                totalPriceDisplay.textContent = `${totalPrice.toFixed(2)}€`;
+                return totalPrice;
+            }
+
+            // Configura o mínimo no campo de data
+            const today = new Date().toISOString().split('T')[0];
+            checkinInput.setAttribute('min', today);
+            checkoutInput.setAttribute('min', today);
+
+            // Eventos para atualizar o preço total
+            checkinInput.addEventListener('change', calculateTotalPrice);
+            checkoutInput.addEventListener('change', calculateTotalPrice);
+
+            // Salva as informações e redireciona para a próxima página
+            nextButton.addEventListener('click', (event) => {
+                event.preventDefault();
+                const totalPrice = calculateTotalPrice();
+                localStorage.setItem('checkin', checkinInput.value);
+                localStorage.setItem('checkout', checkoutInput.value);
+                localStorage.setItem('totalPrice', totalPrice);
+                localStorage.setItem('destination', urlParams.get('destination') || 'Unknown');
+                window.location.href = 'payment.html';
+            });
+        });
+    </script>
+</body>
+</html>

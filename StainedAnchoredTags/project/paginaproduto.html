@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promoção</title>
+    <link rel="stylesheet" href="paginaproduto.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="index.html">
+            <img src="Sanvoyage (1).png" alt="Logo" height="50">
+        </a>
+        <ul>
+            <li><a href="listaprodutos.html">SERVICES</a></li>
+            <li><a href="aboutus.html">ABOUT US</a></li>
+            <button>Contact Us</button>
+        </ul>
+    </div>
+
+    <!-- Product Demo Section -->
+    <div class="product-demo">
+        <div class="slideshow">
+            <div class="slide active" id="slide1"></div>
+            <div class="slide" id="slide2"></div>
+            <div class="slide" id="slide3"></div>
+            <div class="slideshow-controls">
+                <button class="prev">&#10094;</button>
+                <button class="next">&#10095;</button>
+            </div>
+        </div>
+
+        <!-- Product Description -->
+        <div class="product-info">
+            <h1 id="destination-name"></h1>
+            <p id="destination-description"></p>
+            <h1 id="price"></h1>
+            <a id="checkout-link" href="#">
+                <button class="pay-button" >Pagar</button>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <footer>
+            <p>© 2024 made by Renato Santos and Henner Santos</p>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Accessibility Statement</a>
+        </footer>
+    </div>
+
+    <script>
+        // Get URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const destino = urlParams.get('destino');
+        const preco = urlParams.get('preco');
+
+        // Set content dynamically based on the destination
+        const destinationName = document.getElementById("destination-name");
+        const destinationDescription = document.getElementById("destination-description");
+        const price = document.getElementById("price");
+        const checkoutLink = document.getElementById("checkout-link");
+
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            // Hide all slides
+            slides.forEach(slide => slide.classList.remove('active'));
+            // Show the selected slide
+            slides[index].classList.add('active');
+        }
+
+        document.querySelector('.next').addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        });
+
+        document.querySelector('.prev').addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        });
+
+        // Set content and images dynamically based on destination
+        if (destino === "monaco") {
+            destinationName.textContent = "Monaco";
+            destinationDescription.textContent = "Monaco is a city in the southern part of France, known for its stunning architecture, rich history, and vibrant culture. It is a popular destination for tourists seeking a unique blend of French and Italian charm.";
+            price.textContent = `From ${preco}€`;
+            checkoutLink.href = `checkout.html?productId=1&basePrice=${preco}`;
+            
+            // Set images for Monaco
+            document.getElementById("slide1").style.backgroundImage = "url('monaco1.jpg')";
+            document.getElementById("slide2").style.backgroundImage = "url('monaco2.jpg')";
+            document.getElementById("slide3").style.backgroundImage = "url('monaco3.jpg')";
+        } else if (destino === "grecia") {
+            destinationName.textContent = "Santorini, Greece";
+            destinationDescription.textContent = "Santorini is a beautiful Greek island known for its stunning sunsets, crystal-clear waters, and charming villages. It's a top destination for travelers looking for natural beauty and Mediterranean culture.";
+            price.textContent = `From ${preco}€`;
+            checkoutLink.href = `checkout.html?productId=2&basePrice=${preco}`;
+
+            // Set images for Greece
+            document.getElementById("slide1").style.backgroundImage = "url('grecia1.jpg')";
+            document.getElementById("slide2").style.backgroundImage = "url('grecia2.jpg')";
+            document.getElementById("slide3").style.backgroundImage = "url('grecia3.jpg')";
+        } else if (destino === "polynesia") {
+            destinationName.textContent = "French Polynesia (Tahiti)";
+            destinationDescription.textContent = "Tahiti is a tropical paradise known for its crystal-clear lagoons, vibrant coral reefs, and lush landscapes. It's an ideal destination for those seeking a luxurious and secluded escape.";
+            price.textContent = `From ${preco}€`;
+            checkoutLink.href = `checkout.html?productId=3&basePrice=${preco}`;
+
+            // Set images for Polynesia (Tahiti)
+            document.getElementById("slide1").style.backgroundImage = "url('tahiti1.jpg')";
+            document.getElementById("slide2").style.backgroundImage = "url('tahiti2.jpg')";
+            document.getElementById("slide3").style.backgroundImage = "url('tahiti3.jpg')";
+        }
+
+        // Initialize the first slide
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>

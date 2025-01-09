@@ -1,0 +1,445 @@
+  /* Corpo e HTML */
+  body, html {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      width:100%
+  } 
+/* Fim da secção Corpo e HTML */
+/* Navbar */
+    .navbar {
+        z-index: 1000;
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 5px 15px;
+        border-radius: 30px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40%;
+        min-height: 50px;
+    }
+    
+    .navbar img {
+        max-height: 40px;
+        margin-right: 10px;
+    }
+    
+    .navbar ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+    }
+    
+    .navbar ul li {
+        margin: 0 5px;
+    }
+    
+    .navbar ul li a {
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+        font-size: 12px;
+        padding: 5px 10px;
+        border-radius: 15px;
+        transition: all 0.3s;
+    }
+    
+    .navbar ul li a:hover {
+        background-color: #f0f0f0;
+    }
+    
+    .navbar button {
+        background-color: goldenrod;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        font-size: 12px;
+        border-radius: 15px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    
+    .navbar button:hover {
+        background-color: #0056b3;
+    }
+/* Fim da secção Navbar */
+
+  /* Main container */
+  .main-container {
+      background-color: rgb(255, 255, 255);
+      border-bottom: 2px solid black ;
+      border-top: 2px solid black;
+  } /* Fim da secção Main container */
+
+  /* Configuração da área principal com GIF */
+  .container {
+      position: relative;
+      height: 750px;
+      background-image: url("ezgif.com-animated-gif-maker.gif");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+  }
+
+  .container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6); /* Fundo escuro translúcido */
+      z-index: 1;
+  } /* Fim da secção Configuração da área principal com GIF */
+
+  /* Texto sobre a empresa no GIF */
+  .company-description {
+      font-size: 18px;
+      color: white;
+      position: absolute;
+      top: 20%; /* Altura relativa ao GIF */
+      left: 5%; /* Margem à esquerda */
+      max-width: 500px; /* Limita a largura */
+      line-height: 1.6;
+      z-index: 2; /* Aparece acima do GIF */
+      font-family: Arial, sans-serif;
+  } /* Fim da secção Texto sobre a empresa no GIF */
+
+  /* Título de "PROMOTIONS" */
+  .section-title {
+      text-align: center;
+      margin: 40px 0 20px 0; /* Espaço acima e abaixo */
+  }
+
+  .section-title h1 {
+      font-size: 36px;
+      font-weight: bold;
+      color: black;
+  }
+
+  .section-title hr {
+      width: 100px;
+      margin: 10px auto 0 auto; /* Centraliza a linha */
+      border: 0;
+      border-top: 2px solid black;
+  } /* Fim da secção Título de "PROMOTIONS" */
+
+  /* Promoções */
+  .container-promotions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      background-color: #f5f5f5;
+      padding: 30px;
+      border-bottom: 2px solid #ccc;
+      border-top: 2px solid #ccc;
+      gap: 30px; /* Maior espaço entre as promoções */
+  }
+
+  .grelha {
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      text-align: center;
+      width: 320px; /* Largura maior para as promoções */
+      height: 450px; /* Aumentando a altura das promoções */
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .grelha:hover {
+      transform: translateY(-10px);
+      box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .grelha img {
+      width: 100%;
+      height: 250px; /* Ajuste da altura da imagem */
+      object-fit: cover; /* Para cobrir bem o espaço sem deformar */
+      border-bottom: 2px solid #ccc;
+  }
+
+  .grelha del {
+      font-size: 16px;
+      color: #888;
+  }
+
+  .grelha h1 {
+      font-size: 24px;
+      color: #2c3e50;
+      margin: 10px 0;
+  } /* Fim da secção Promoções */
+
+  /* Fotos */
+  .grelha-photos {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      padding: 30px;
+      background-color: #fafafa;
+      gap: 30px; /* Maior espaçamento entre as fotos */
+  }
+
+  .photos {
+      width: 240px; /* Tornando as fotos do mesmo tamanho */
+      height: 340px; /* Ajustando para altura igual */
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      padding: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .photos:hover {
+      transform: translateY(-8px);
+      box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .photos img {
+      border-radius: 50%;
+      width: 140px; /* Imagem maior */
+      height: 140px; /* Imagem maior */
+      margin-bottom: 15px;
+      border: 3px solid #2c3e50;
+  }
+
+  .photos h2 {
+      font-size: 20px; /* Tamanho maior para o nome */
+      color: #34495e;
+      margin-bottom: 10px;
+      font-weight: bold;
+  }
+
+  .photos p {
+      font-size: 16px; /* Aumentando o tamanho do texto */
+      color: #7f8c8d;
+      line-height: 1.6;
+      font-style: italic; /* Tornando o texto mais estilizado */
+  } /* Fim da secção Fotos */
+
+  /* Seção About Us */
+  .container-about-us {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      padding: 40px 20px;
+      background-color: #f5f5f5;
+      border-top: 2px solid #ddd;
+      border-bottom: 2px solid #ddd;
+  }
+
+  /* Bloco principal (imagem e texto sobre a empresa) */
+  .grelha-about-us {
+      width: 320px;
+      height: auto;
+      text-align: center;
+      background-color: white;
+      border-radius: 10px;
+      border: 2px solid #ccc;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .grelha-about-us:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .grelha-about-us img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+  }
+
+  .grelha-about-us p {
+      font-size: 18px;
+      color: #555;
+      line-height: 1.5;
+  } /* Fim da secção About Us */
+
+  /* Bloco dos membros da equipe */
+  .grelha-photos {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+  }
+
+  .photos {
+      width: 250px;
+      height: 400px;
+      text-align: center;
+      background-color: white;
+      border-radius: 10px;
+      border: 2px solid #ccc;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .photos:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .photos img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+      border: 3px solid #2c3e50;
+  }
+
+  .photos h2 {
+      font-size: 20px;
+      color: #333;
+      font-weight: bold;
+      margin-bottom: 10px;
+  }
+
+  .photos p {
+      font-size: 16px;
+      color: #777;
+      line-height: 1.4;
+  } /* Fim da secção Bloco dos membros da equipe */
+
+/*Início Container de contacto */
+.container-contact {
+    display: flex;
+    justify-content: space-around;
+}
+
+/* Formulário de Contato */
+.form {
+    border-radius: 10px;
+    padding: 20px;
+    background-color: rgba(204, 204, 204, 0.1);
+    width: 100%;
+    max-width: 500px;
+    
+    
+}
+
+.form input,
+.form textarea {
+    width: calc(100% - 20px);
+    margin: 10px 0;
+    padding: 10px;
+    border: 2px solid #ccc; 
+    border-radius: 5px;
+    color: black;
+}
+
+.form button {
+    color: #2c3e50;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.form button:hover {
+    background-color: goldenrod;
+    color: white;
+}
+
+/* Fim da secção Container de contacto */
+
+/* Início Footer */
+.footer {
+    background-color: #ffffff;
+    color: goldenrod;
+    text-align: center;
+    padding: 20px 10px;
+    border-top: 2px solid white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+/*Fim Footer*/
+
+  /* Responsividade */
+  @media (max-width: 768px) {
+      .container-promotions {
+          flex-direction: column; /* Empilha os itens verticalmente */
+      }
+
+      .grelha {
+          width: 90%; /* Reduz a largura em telas pequenas */
+      }
+
+      .navbar ul {
+          flex-direction: column; /* Alinha os itens verticalmente */
+          align-items: center;
+      }
+
+      .navbar ul li {
+          margin: 5px 0; /* Reduz o espaçamento entre os itens */
+      }
+
+      .navbar button {
+          margin-top: 10px; /* Dá espaço em telas pequenas */
+      }
+  }
+
+  @media (max-width: 768px) {
+      .navbar {
+          width: 70%; /* Reduz a largura em telas menores */
+          padding: 5px 10px; /* Menor espaçamento */
+          flex-direction: column; /* Empilha o conteúdo */
+      }
+
+      .navbar ul {
+          flex-direction: column; /* Empilha itens verticalmente */
+          align-items: center;
+          width: 100%; /* Usa toda a largura disponível */
+      }
+
+      .navbar ul li {
+          margin: 5px 0; /* Espaço entre itens na vertical */
+      }
+
+      .navbar img {
+          max-height: 30px; /* Logo ainda menor em telas pequenas */
+          margin-bottom: 5px; /* Espaço abaixo do logo */
+      }
+
+      .navbar button {
+          margin-top: 5px; /* Espaço adicional para o botão */
+          font-size: 10px; /* Texto menor no botão */
+      }
+      .product-list {
+          margin-top: 80px;
+      }
+
+      .produto {
+          grid-template-columns: 1fr;
+      }
+  } /* Fim da secção Responsividade */

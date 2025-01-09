@@ -1,0 +1,220 @@
+/* Reset */
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+.main-container {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    color: #2c3e50;
+    padding-bottom: 20px;
+    min-height: 100vh;
+    overflow-x: hidden; /* Remove scroll lateral */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px 30px;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 45%;
+}
+
+.navbar img {
+    height: 60px;
+    margin-right: 15px;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.navbar ul li {
+    margin: 0 10px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #2c3e50;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 8px 15px;
+    border-radius: 25px;
+    transition: all 0.3s;
+}
+
+.navbar ul li a:hover {
+    background-color: #f0f0f0;
+}
+
+.navbar button {
+    background-color: #FFD700; /* Gold */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    font-size: 14px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.navbar button:hover {
+    background-color: #e6c300;
+}
+
+/* Personal Information Section */
+.checkout-container {
+    padding: 40px;
+    text-align: center;
+    margin-top: 80px;
+}
+
+.checkout-container h1 {
+    font-size: 30px;
+    margin-bottom: 30px;
+    font-weight: bold;
+    color: #FFD700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.checkout-container h1::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 2px;
+    background-color: #FFD700;
+}
+
+.personal-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.personal-info input {
+    width: calc(50% - 10px);
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* Reservation Summary Section */
+.reservation-summary {
+    padding: 20px;
+    background-color: white;
+    border: 2px solid #ddd;
+    margin: 30px auto;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.reservation-summary h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #FFD700;
+}
+
+.reservation-summary label {
+    font-weight: bold;
+}
+
+.reservation-summary input {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin: 10px 0;
+    width: 100%;
+}
+
+.reservation-summary p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* Next Button */
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.button-container button {
+    padding: 15px 30px;
+    background-color: #FFD700; /* Gold */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button-container button:hover {
+    background-color: #e6c300;
+}
+
+/* Footer */
+.footer {
+    background-color: #fff; /* White */
+    color: #FFD700;
+    text-align: center;
+    padding: 20px;
+    border-top: 2px solid #FFD700;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.footer a {
+    color: #FFD700;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .personal-info input {
+        width: calc(100% - 10px);
+    }
+
+    .reservation-summary {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .button-container button {
+        width: 90%;
+    }
+}

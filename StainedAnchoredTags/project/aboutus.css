@@ -1,0 +1,199 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.main-container{
+    background-color: rgb(255, 255, 255);
+    border-bottom: 2px solid black ;
+    border-top: 2px solid black;
+}
+.navbar {
+    display: flex;
+    align-items: center; /* Alinha verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.8); /* Fundo semitransparente */
+    padding: 5px 15px; /* Reduz o espaçamento interno */
+    border-radius: 30px; /* Forma oval menor */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    z-index: 10;
+    width: 40%; /* Reduz a largura total */
+    min-height: 50px; /* Define altura mínima */
+    
+}
+
+.navbar img {
+    max-height: 60px; /* Logo menor */
+    margin-right: 10px; /* Espaço entre o logo e o texto */
+}
+
+.navbar ul {
+    display: flex; /* Exibe os itens em linha */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.navbar ul li {
+    margin: 0 5px; /* Reduz o espaçamento entre itens */
+}
+
+.navbar ul li a {
+    text-decoration: none; /* Remove sublinhado */
+    color: black;
+    font-weight: bold;
+    font-size: 12px; /* Texto menor */
+    padding: 5px 10px; /* Espaçamento interno menor */
+    border-radius: 15px; /* Arredonda os links */
+    transition: all 0.3s;
+}
+
+.navbar ul li a:hover {
+    background-color: #f0f0f0; /* Fundo claro ao passar o mouse */
+}
+
+.navbar button {
+    background-color: #007BFF; /* Azul elegante */
+    color: white;
+    border: none;
+    padding: 5px 10px; /* Menor espaçamento interno */
+    font-size: 12px; /* Texto menor */
+    border-radius: 15px; /* Bordas arredondadas */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.navbar button:hover {
+    background-color: #0056b3; /* Azul mais escuro ao passar o mouse */
+}
+
+/* Container principal */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-top: 100px;
+}
+
+/* Seção "About Us" */
+.container-about-us {
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.grelha-about-us {
+    width: 210px;
+    text-align: center;
+}
+
+.grelha-about-us img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.grelha-photos {
+    display: flex;
+    gap: 20px;
+}
+
+.photos {
+    text-align: center;
+}
+
+.photos img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.photos h2 {
+    font-size: 18px;
+    color: #333;
+}
+
+.photos p {
+    font-size: 14px;
+    color: #555;
+}
+.footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+    border-top: 2px solid white;
+}
+
+.footer a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .container-promotions {
+        flex-direction: column; /* Empilha os itens verticalmente */
+    }
+
+    .grelha {
+        width: 90%; /* Reduz a largura em telas pequenas */
+    }
+
+    .navbar ul {
+        flex-direction: column; /* Alinha os itens verticalmente */
+        align-items: center;
+    }
+
+    .navbar ul li {
+        margin: 5px 0; /* Reduz o espaçamento entre os itens */
+    }
+
+    .navbar button {
+        margin-top: 10px; /* Dá espaço em telas pequenas */
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        width: 70%; /* Reduz a largura em telas menores */
+        padding: 5px 10px; /* Menor espaçamento */
+        flex-direction: column; /* Empilha o conteúdo */
+    }
+
+    .navbar ul {
+        flex-direction: column; /* Empilha itens verticalmente */
+        align-items: center;
+        width: 100%; /* Usa toda a largura disponível */
+    }
+
+    .navbar ul li {
+        margin: 5px 0; /* Espaço entre itens na vertical */
+    }
+
+    .navbar img {
+        max-height: 30px; /* Logo ainda menor em telas pequenas */
+        margin-bottom: 5px; /* Espaço abaixo do logo */
+    }
+
+    .navbar button {
+        margin-top: 5px; /* Espaço adicional para o botão */
+        font-size: 10px; /* Texto menor no botão */
+    }
+}
+
